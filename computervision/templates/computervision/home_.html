@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Live Stream</title>
+    <link rel="stylesheet" href="styles.css"> <!-- External CSS file for better styling -->
+    <style>
+        /* Inline styling for simplicity */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            padding: 1em;
+            width: 100%;
+            text-align: center;
+        }
+        main {
+            padding: 1em;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Video Live Stream</h1>
+    </header>
+    <main>
+            <img src="{% url 'video_feed' %}">
+
+    </main>
+</body>
+</html>
