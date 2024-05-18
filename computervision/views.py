@@ -5,7 +5,7 @@ from computervision.camera import VideoCamera #, IPWebCam, MaskDetect, LiveWebCa
 
 
 def index(request):
-    return render(request, 'computervision/home_.html')
+    return render(request, 'computervision/home.html')
 
 
 def gen(camera):

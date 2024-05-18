@@ -19,5 +19,7 @@ from django.urls import path,include
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('', include('computervision.urls'))
+    path('cv/', include('computervision.urls')),
+    path('nlp/', include('naturallanguageprocessing.urls')),
+    path('', include('home.urls'))
 ]
