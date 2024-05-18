@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.http.response import StreamingHttpResponse
-from computervision.camera import VideoCamera #, IPWebCam, MaskDetect, LiveWebCam
+from computervision.camera import * #VideoCamera, IPWebCam, Videoplayback  #, MaskDetect, LiveWebCam
+
+
 # Create your views here.
 
 
@@ -18,18 +20,14 @@ def gen(camera):
 def video_feed(request):
     return StreamingHttpResponse(gen(VideoCamera()),
                                  content_type='multipart/x-mixed-replace; boundary=frame')
-#
-#
-# def webcam_feed(request):
-#     return StreamingHttpResponse(gen(IPWebCam()),
-#                                  content_type='multipart/x-mixed-replace; boundary=frame')
-#
-#
-# def mask_feed(request):
-#     return StreamingHttpResponse(gen(MaskDetect()),
-#                                  content_type='multipart/x-mixed-replace; boundary=frame')
-#
-#
-# def livecam_feed(request):
-#     return StreamingHttpResponse(gen(LiveWebCam()),
-#                                  content_type='multipart/x-mixed-replace; boundary=frame')
+
+
+def webcam_feed(request):
+    print("webcam")
+    return StreamingHttpResponse(gen(IPWebCam()),
+                                 content_type='multipart/x-mixed-replace; boundary=frame')
+
+
+def video_playback(request):
+    return StreamingHttpResponse(gen(Videoplayback()),
+                                 content_type='multipart/x-mixed-replace; boundary=frame')
