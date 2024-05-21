@@ -1,6 +1,7 @@
 import cv2
 import numpy as np
-from django.conf import settings
+import copy
+from utility_custom.yolo import detect
 
 
 class VideoCamera(object):
@@ -12,8 +13,12 @@ class VideoCamera(object):
 
     def get_frame(self):
         success, image = self.video.read()
-        frame_flip = cv2.flip(image, 1)
-        ret, jpeg = cv2.imencode('.jpg', frame_flip)
+        # image_ = copy.deepcopy(image)
+        result,annoted_frame = detect(image)
+        # print(result)
+        # frame_flip = cv2.flip(annoted_frame, 1)
+
+        ret, jpeg = cv2.imencode('.jpg', annoted_frame)
         return jpeg.tobytes()
 
 
